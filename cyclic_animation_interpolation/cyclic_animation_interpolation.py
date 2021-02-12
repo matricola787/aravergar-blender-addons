@@ -16,19 +16,21 @@
 #
 # ##### END GPL LICENSE BLOCK #####
 
+
+import bpy
+
+
 bl_info = {
     "name": "Cyclic animation interpolation",
     "description": "Interpolates the entire animation cycle taking the extremes into account",
-    "author": "aravergar",
-    "email": "aravergar@gmail.com",
-    "version": (1, 0),
+    "author": "matricola787",
+    "version": (1, 1),
     "blender": (2, 90, 0),
     "location": "Key > Interpolate Cycle",
     "warning": "",
     "category": "Add Curve"
 }
 
-import bpy
 
 def selectedfcurves(obj):
     """Select fcurves from active object
@@ -44,6 +46,7 @@ def selectedfcurves(obj):
         if fc.select:
             fcurves_sel.append(fc)
     return fcurves_sel
+
 
 def main(context):
     """Interpolates the fcurves around the first and last keyframes
@@ -69,9 +72,10 @@ def main(context):
         keyframes = fcurve.keyframe_points.values()
         # Removal of the aforementioned keyframes. Fast removal enabled, so the interpolation remains.
         right = keyframes[-1]
-        fcurve.keyframe_points.remove(right, True)
+        fcurve.keyframe_points.remove(right, fast=True)
         left = keyframes[0]
-        fcurve.keyframe_points.remove(left, True)
+        fcurve.keyframe_points.remove(left, fast=True)
+
 
 class GRAPH_OT_interpolate(bpy.types.Operator):
     bl_idname = "graph.interpolate_cyclic_animation"
@@ -85,22 +89,28 @@ class GRAPH_OT_interpolate(bpy.types.Operator):
         main(context)
         return {'FINISHED'}
 
+
 def menu_func(self, context):
- 	self.layout.operator(GRAPH_OT_interpolate.bl_idname)
-    #self.layout.operator("Interpolate Animation Cycle Extremes")
+    self.layout.operator(GRAPH_OT_interpolate.bl_idname)
+    # self.layout.operator("Interpolate Animation Cycle Extremes")
+
 
 #################################################
-#### REGISTER ###################################
+# REGISTER ######################################
 #################################################
 def register():
-    bpy.utils.register_module(__name__)
+    # bpy.utils.register_module(__name__)
+    bpy.utils.register_class(GRAPH_OT_interpolate)
 
     bpy.types.GRAPH_MT_channel.append(menu_func)
+
 
 def unregister():
     bpy.types.GRAPH_MT_channel.remove(menu_func)
 
-    bpy.utils.unregister_module(__name__)
+    # bpy.utils.unregister_module(__name__)
+    bpy.utils.unregister_class(GRAPH_OT_interpolate)
+
 
 if __name__ == "__main__":
     register()
