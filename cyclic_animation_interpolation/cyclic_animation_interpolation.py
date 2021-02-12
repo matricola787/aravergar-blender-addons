@@ -22,7 +22,7 @@ bl_info = {
     "author": "aravergar",
     "email": "aravergar@gmail.com",
     "version": (1, 0),
-    "blender": (2, 76, 0),
+    "blender": (2, 90, 0),
     "location": "Key > Interpolate Cycle",
     "warning": "",
     "category": "Add Curve"
