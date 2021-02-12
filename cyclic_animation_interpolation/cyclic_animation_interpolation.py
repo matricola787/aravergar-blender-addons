@@ -24,7 +24,7 @@ bl_info = {
     "name": "Cyclic animation interpolation",
     "description": "Interpolates the entire animation cycle taking the extremes into account",
     "author": "matricola787",
-    "version": (1, 0),
+    "version": (1, 1),
     "blender": (2, 90, 0),
     "location": "Key > Interpolate Cycle",
     "warning": "",
