@@ -1,7 +1,7 @@
 # Cyclic Animation Interpolation
 ## Description
 
-This is an addon for Blender 2.76. It is used for interpolating correctly the extremes of a cyclic animation.
+This is an addon for Blender 2.90. It is used for interpolating correctly the extremes of a cyclic animation.
 
 Blender does not interpolates the beggining and end of an animation when we want it to make it cyclic. This addon solves this by forcing it to interpolate between the second and the second-to-last keyframes.
 
@@ -18,8 +18,8 @@ Therefore, the first and last keyframes sets have equal values.
 In the Graph Editor, Channel menu, there will be a new entry called "Interpolate Cyclic Animation". Click on that entry when you are ready and left-click on the Graph Editor main view (this is a bug I'll have to solve. The script should run without this click). All previously selected fcurves will be affected by this script. You'll note that, now, the fcurves evaluate so that it take into account keyframes beyond first and last recorded keyframes.
 
 ## Notes
-I have used some junks of the code of Fabrizio Nunnari:
-* [**Simplify Multiple F-Curves**](https://developer.blender.org/T36097) is a Blender addon to simplify and align the keyframes of multiple F-Curves at once.
+This is a fork.
+The original author is https://github.com/aravergar
 
 
 
