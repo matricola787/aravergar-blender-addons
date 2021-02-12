@@ -3,3 +3,4 @@
 * **v0.1 [25-2-16]** - Initial commit. The addon adds the next-to-last and second keyframes before and after the animation range. It does force Blender to interpolate the fcurve around the first and last keyframes.
 * **v1.0 [25-2-16]** - Modified main body. Now the script removes the two newly inserted keyframes with fast mode enabled, so the fcurve doesn't reevaluate and the modified interpolation remains.
 * **v1.1 [12-2-21]** - Updated the script to be able to run in blender 2.90.
+* **v1.2 [12-2-21]** - Fixed the need to click on the graph to update the area.
