@@ -24,7 +24,7 @@ bl_info = {
     "name": "Cyclic animation interpolation",
     "description": "Interpolates the entire animation cycle taking the extremes into account",
     "author": "matricola787",
-    "version": (1, 1),
+    "version": (1, 2),
     "blender": (2, 90, 0),
     "location": "Key > Interpolate Cycle",
     "warning": "",
@@ -75,6 +75,9 @@ def main(context):
         fcurve.keyframe_points.remove(right, fast=True)
         left = keyframes[0]
         fcurve.keyframe_points.remove(left, fast=True)
+        # fcurve.update()
+    for area in context.screen.areas:
+        area.tag_redraw()
 
 
 class GRAPH_OT_interpolate(bpy.types.Operator):
